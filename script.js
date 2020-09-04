@@ -47,7 +47,33 @@ function generatePassword() {
     confirmArray = [specialCharactersConfirm, numericCharactersConfirm, lowercaseCharactersConfirm, uppercaseCharactersConfirm];
     listArray = [specialCharacterList, numericCharacterList, lowercaseCharacterList, uppercaseCharacterList];
     // End: Defining variables
-  
+
+
+    // Created function
+    function randomPasswordFormed(list) {
+      var passwordString = "";
+
+      for (var i = 0; i < passwordCharacterCount; i++) {
+        passwordString += list.charAt(Math.floor(Math.random() * list.length));
+      }
+      
+      return passwordString;
+    }
+    // End: Created function
+
+
+    // for loop
+    for (i = 0; i < confirmArray.length; i++) {
+      if (confirmArray[i]) {
+        emptyArray.push(listArray[i]);
+      }
+    }
+    // End: for loop
+
+
+    // Calling randomPassword formed to return the created password
+    return randomPasswordFormed(emptyArray.join());
+    // End: Calling randomPassword formed to return the created password   
   }
   //End: Number success path
 
